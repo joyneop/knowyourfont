@@ -155,7 +155,24 @@ KYF.moveToScoreScreen = function () {
     } else if (KYF._.corrects < KYF._.questionsCount) {
         userScore = Math.floor(KYF._.corrects / KYF._.questionsCount * 1600);
     };
+    var userRemark = 'Absolutely Perfect!';
+    if (userScore < 1500) {
+        userRemark = 'Almost Perfect!';
+    };
+    if (userScore < 1300) {
+        userRemark = 'You\'re very good!';
+    };
+    if (userScore < 1100) {
+        userRemark = 'Good!';
+    };
+    if (userScore < 900) {
+        userRemark = 'Quite Fine!';
+    };
+    if (userScore < 700) {
+        userRemark = 'You are about the average';
+    };
     document.getElementById('data-user-score').innerHTML = userScore;
+    document.getElementById('data-user-remark').innerHTML = userRemark;
     setTimeout(function () {
         document.body.setAttribute('data-page-type', 'result');
         setTimeout(function () {
