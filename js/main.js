@@ -4,16 +4,6 @@ window.KYF = {
         questionsCount: 10,
         currentQuestionIndexAmongAll: 0,
         corrects: 0
-    },
-    'debug': {
-        'moveToResult': function () {
-            KYF.userDidClickStartGameButton();
-            KYF.setBackgrounds(3);
-            document.body.setAttribute('data-page-type', 'result');
-            document.getElementById('content-1').remove();
-            document.getElementById('content-2').remove();
-            document.getElementById('content-3').style.opacity = 1;
-        }
     }
 };
 
@@ -116,7 +106,8 @@ KYF.userDidClickStartGameButton = function () {
                 document.getElementById('content-2').style.opacity = '1';
                 document.getElementById('grand-progress-bar-container').style.top = '5px';
             }, 300);
-        }, 600);
+        // }, 600);
+        }, 200);
     } else {
 
     };
@@ -158,6 +149,13 @@ KYF.setProgressBar = function (progressVal) {
 };
 
 KYF.moveToScoreScreen = function () {
+    var userScore = 1600;
+    if (KYF._.corrects === 0) {
+        userScore = 0;
+    } else if (KYF._.corrects < KYF._.questionsCount) {
+        userScore = Math.floor(KYF._.corrects / KYF._.questionsCount * 1600);
+    };
+    document.getElementById('data-user-score').innerHTML = userScore;
     setTimeout(function () {
         document.body.setAttribute('data-page-type', 'result');
         setTimeout(function () {
@@ -166,7 +164,7 @@ KYF.moveToScoreScreen = function () {
             document.getElementById('content-3').style.opacity = '1';
             document.getElementById('grand-progress-bar-container').style.top = '-5px';
         }, 300);
-    }, 600);
+    }, 40);
     // alert('Game finished! ' + KYF._.corrects + ' out of ' + KYF._.questionsCount);
 };
 
@@ -195,8 +193,6 @@ KYF.userDidClickOptionButton = function (ev_) {
     }
 };
 
-
-
 KYF.submitAnswer = function (answerStr) {
     // console.log(answerStr, KYF.getCurrentChapter(), KYF.getCurrentQuestion(), KYF.getQuestionDetails(KYF.getCurrentChapter(), KYF.getCurrentQuestion()).correctOption);
     KYF._.currentQuestionIndexAmongAll += 1;
@@ -205,7 +201,8 @@ KYF.submitAnswer = function (answerStr) {
     };
 };
 
-
+KYF.shareFB = function () { alert('Functionality not implemented yet.') };
+KYF.shareTW = function () { alert('Functionality not implemented yet.') };
 
 
 
@@ -213,7 +210,7 @@ KYF.submitAnswer = function (answerStr) {
 KYF.init = function () {
     if (!KYF._.initialized) {
         KYF._.initialized = true;
-        KYF.setProgressBar(0.01);
+        KYF.setProgressBar(0.00001);
 
         (function () {
             // listen to `click` event on `.option` elements

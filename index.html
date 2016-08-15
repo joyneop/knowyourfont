@@ -67,7 +67,7 @@
                         <h2 id="my-chapter-h2">Chapter 1</h2>
                         <div class="separation contextual-fill"></div>
                         <h3 id="my-challenge-h3">Challenge 1</h3>
-                        <p id="my-question">Which font is Baskerville?</p>
+                        <p id="my-question">Which font is This?</p>
                     </div>
                     <div class="options-playground" data-options-playground-type="A">
                         <div class="before-options">
@@ -92,10 +92,10 @@
                         <div style="font-size: 24px; font-weight: 300; letter-spacing: 2px;">
                             <span>YOUR SCORE</span>
                         </div>
-                        <div style="font-size: 60px; font-weight: 300; padding-top: 20px;">
-                            <span>100 / 100</span>
+                        <div style="font-size: 60px; font-weight: 300; padding-top: 45px;">
+                            <span><span id="data-user-score"></span> / 1600</span>
                         </div>
-                        <div style="font-size: 24px; font-weight: 300; padding-top: 50px;">
+                        <div style="font-size: 24px; font-weight: 300; padding-top: 45px;">
                             <span>Share on <span class="underline cursor-pointer" onclick="KYF.shareFB()">Facebook</span> or <span class="underline cursor-pointer" onclick="KYF.shareTW()">Twitter</span>?</span>
                         </div>
                     </div>
@@ -112,9 +112,19 @@
 
         <!-- /StandAloneObjects -->
 
-        <div id="mobile-not-supported">
+        <div id="mobile-not-supported" style="">
+            <div>Mobile is not supported.</div>
+            <div>Please use a device at least 768px wide.</div>
         </div>
+
         <script>
+        if (window.innerWidth < 768) {
+            document.getElementById('mobile-not-supported').style.display = 'block';
+            document.getElementById('grand-cont').style.display = 'none';
+        } else {
+            document.getElementById('mobile-not-supported').style.display = 'none';
+            document.getElementById('grand-cont').style.display = 'block';
+        };
         window.addEventListener('resize', function () {
             if (window.innerWidth < 768) {
                 document.getElementById('mobile-not-supported').style.display = 'block';

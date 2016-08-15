@@ -101,7 +101,7 @@ body {
 
 #content-2, #content-3 {
     opacity: 0;
-    transition: all 500ms ease;
+    transition: opacity 500ms ease;
 }
 
 h1 {
@@ -216,10 +216,12 @@ h1 {
 
 /* ------------------------------ */
 
+[data-current-chapter="c2"], [data-current-chapter="c3"] { color: #FFF; }
+
 [data-current-chapter="c1"] .contextual-color { color: rgba(0, 0, 0, 0.95); }
 [data-current-chapter="c2"] .contextual-color, [data-current-chapter="c3"] .contextual-color { color: #FFF; }
 [data-current-chapter="c1"] .contextual-fill { background: rgba(0, 0, 0, 0.95); }
-[data-current-chapter="c2"] .contextual-fill, [data-current-chapter="c3"] .contextual-fill { background: #FFF; }
+[data-current-chapter="c2"] .contextual-fill, [data-current-chapter="c3"] .contextual-fill { background: rgba(255, 255, 255, 0.7); }
 [data-current-chapter="c1"] .contextual-border { border: 1px solid rgba(0, 0, 0, 0.2); }
 [data-current-chapter="c1"] .contextual-border:hover { border: 1px solid rgba(0, 0, 0, 0.5); }
 [data-current-chapter="c2"] .contextual-border, [data-current-chapter="c3"] .contextual-border { border: 1px solid rgba(255, 255, 255, 0.4); }
@@ -279,4 +281,20 @@ h1 {
     width: 90px;
     height: 5px;
     transition: none;
+}
+
+/* ------------------------------ */
+
+#mobile-not-supported {
+    font-family: -apple-system, 'SF UI Text', 'Segoe UI', 'Open Sans', 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    background: #FFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 50px 20px 0;
+    z-index: 9889;
 }
