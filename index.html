@@ -14,11 +14,6 @@
         <link rel="prefetch" href="/img/bg/c3-bg1.jpg" />
         <link rel="prefetch" href="/img/bg/c3-bg2.jpg" />
 
-        <!-- Prefetch: Candidates -->
-        <link rel="prefetch" href="/img/can/1011.png" />
-        <link rel="prefetch" href="/img/can/1012.png" />
-        <link rel="prefetch" href="/img/can/1013.png" />
-
         <!-- Prefetch: WOFF -->
         <link rel="prefetch" href="/fonts/open-sans/OpenSans.woff" />
 
@@ -33,25 +28,18 @@
         <!-- JS -->
         <script src="/js/main.js"></script>
     </head>
-    <body data-current-chapter="c1" data-current-challenge="c1" data-page-type="chapterindex">
+    <body data-current-chapter="c1" data-current-question="q0" data-page-type="chapterindex">
         <!--
             data-page-type: chapterindex|question|result
         -->
         <script>
         (function () {
-            var lp_ = function (str_, leng_) {
-                if (str_.length < leng_) {
-                    return (new Array(leng_ - str_.length)).fill('0').join('') + str_;
-                } else {
-                    return str_;
-                };
-            };
             [6,2,2].map(function (chapterSize, chapter) {
                 (new Array(chapterSize)).fill(1).map(function (_a, _b) { return _b+1 }).map(function (_a, _b) {
                     for (var i = 1; i < 4; i++) {
                         var tag = document.createElement('link');
                         tag.setAttribute('rel', 'prefetch');
-                        tag.setAttribute('href', '/img/can/' + (chapter+1) + '' + lp_(String(_b+1), 2) + '' + i + '.png');
+                        tag.setAttribute('href', '/img/can/' + (chapter+1) + '-' + (_b+1) + '-' + i + '.png');
                         document.head.appendChild(tag);
                     };
                 });
@@ -65,50 +53,63 @@
 
         <div id="grand-cont">
             <div id="content">
-                <div id="content">
-                    <div id="content-1">
-                        <header>
-                            <div style="height: 320px;"></div>
-                            <h1 id="grand-h1">A Typography Adventure</h1>
-                        </header>
+                <div id="content-1">
+                    <header>
+                        <div style="height: 320px;"></div>
+                        <h1 id="grand-h1">The Typography Adventure</h1>
+                    </header>
+                </div>
+                <div id="content-2">
+                    <header>
+                        <img class="js-TheLogo" src="/img/logo-b.png" width="100" height="100">
+                    </header>
+                    <div id="content-heading">
+                        <h2 id="my-chapter-h2">Chapter 1</h2>
+                        <div class="separation contextual-fill"></div>
+                        <h3 id="my-challenge-h3">Challenge 1</h3>
+                        <p id="my-question">Which font is Baskerville?</p>
                     </div>
-                    <div id="content-2">
-                        <header>
-                            <img class="js-TheLogo" src="/img/logo-b.png" width="100" height="100">
-                        </header>
-                        <div id="content-heading">
-                            <h2 id="my-chapter-h2">Chapter 1</h2>
-                            <div class="separation"></div>
-                            <h3 id="my-challenge-h3">Challenge 1</h3>
-                            <p id="my-question">Which font is Baskerville?</p>
+                    <div class="options-playground" data-options-playground-type="A">
+                        <div class="before-options">
                         </div>
-                        <div class="options-playground" data-options-playground-type="A">
-                            <div class="before-options">
+                        <div class="options">
+                            <div class="option contextual-border" data-option="A">
                             </div>
-                            <div class="options">
-                                <div class="option contextual-border" data-option="A">
-                                </div>
-                                <div class="option contextual-border" data-option="B">
-                                </div>
-                                <div class="option contextual-border" data-option="C">
-                                </div>
+                            <div class="option contextual-border" data-option="B">
+                            </div>
+                            <div class="option contextual-border" data-option="C">
                             </div>
                         </div>
-                        <div>
-                        </div>
                     </div>
-                    <div id="content-3">
-                        <header>
-                            <img class="js-TheLogo" src="/img/logo-b.png" width="100" height="100">
-                        </header>
+                    <div>
+                    </div>
+                </div>
+                <div id="content-3">
+                    <header>
+                        <img class="js-TheLogo" src="/img/logo-b.png" width="100" height="100">
+                    </header>
+                    <div style="padding-top: 70px;">
+                        <div style="font-size: 24px; font-weight: 300; letter-spacing: 2px;">
+                            <span>YOUR SCORE</span>
+                        </div>
+                        <div style="font-size: 60px; font-weight: 300; padding-top: 20px;">
+                            <span>100 / 100</span>
+                        </div>
+                        <div style="font-size: 24px; font-weight: 300; padding-top: 50px;">
+                            <span>Share on <span class="underline cursor-pointer" onclick="KYF.shareFB()">Facebook</span> or <span class="underline cursor-pointer" onclick="KYF.shareTW()">Twitter</span>?</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- StandAloneObjects -->
-        <div id="grand-logo-container"><img id="grand-logo" class="js-TheLogo-xl" src="/img/logo-b@6x.png"></div>
-        <button id="js-TheButton" type="button" class="my-btn contextual-border contextual-color">Start Game</button>
+        <div id="js-StandAloneObjectsContainer">
+            <div id="grand-logo-container"><img id="grand-logo" class="js-TheLogo-xl" src="/img/logo-b@6x.png"></div>
+            <button id="js-TheButton" type="button" class="my-btn contextual-border contextual-color">Start Game</button>
+            <div id="grand-progress-bar-container"><div id="grand-progress-bar"><div id="grand-progress-bar-inner" class="contextual-fill"></div></div></div>
+        </div>
+
         <!-- /StandAloneObjects -->
 
         <div id="mobile-not-supported">

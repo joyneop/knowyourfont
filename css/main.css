@@ -13,6 +13,18 @@ body {
     overflow: hidden;
 }
 
+.underline {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.underline:hover {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /* ------------------------------ */
 
 [data-page-type="chapterindex"] #content-1 {display: block;}
@@ -83,7 +95,8 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    /*transition: all 330ms ease;*/
+    box-shadow: rgba(0, 0, 0, 0.15) 0 -9vh 30vh inset;
+    transition: all 330ms ease;
 }
 
 #content-2, #content-3 {
@@ -166,6 +179,7 @@ h1 {
 }
 
 .option {
+    background-size: cover;
     /*border: 1px solid #000;*/
     border-radius: 6px;
     display: block;
@@ -202,31 +216,20 @@ h1 {
 
 /* ------------------------------ */
 
-[data-current-chapter="c1"] .contextual-color {
-    color: rgba(0, 0, 0, 0.95);
-}
-
-[data-current-chapter="c2"] .contextual-color, [data-current-chapter="c3"] .contextual-color {
-    color: #FFF;
-}
-
-[data-current-chapter="c1"] .contextual-border {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-[data-current-chapter="c1"] .contextual-border:hover {
-    border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-[data-current-chapter="c2"] .contextual-border, [data-current-chapter="c3"] .contextual-border {
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-[data-current-chapter="c2"] .contextual-border:hover, [data-current-chapter="c3"] .contextual-border:hover {
-    border: 1px solid rgba(255, 255, 255, 0.7);
-}
+[data-current-chapter="c1"] .contextual-color { color: rgba(0, 0, 0, 0.95); }
+[data-current-chapter="c2"] .contextual-color, [data-current-chapter="c3"] .contextual-color { color: #FFF; }
+[data-current-chapter="c1"] .contextual-fill { background: rgba(0, 0, 0, 0.95); }
+[data-current-chapter="c2"] .contextual-fill, [data-current-chapter="c3"] .contextual-fill { background: #FFF; }
+[data-current-chapter="c1"] .contextual-border { border: 1px solid rgba(0, 0, 0, 0.2); }
+[data-current-chapter="c1"] .contextual-border:hover { border: 1px solid rgba(0, 0, 0, 0.5); }
+[data-current-chapter="c2"] .contextual-border, [data-current-chapter="c3"] .contextual-border { border: 1px solid rgba(255, 255, 255, 0.4); }
+[data-current-chapter="c2"] .contextual-border:hover, [data-current-chapter="c3"] .contextual-border:hover { border: 1px solid rgba(255, 255, 255, 0.7); }
 
 /* ------------------------------ */
+
+#js-StandAloneObjectsContainer {
+    transition: all 350ms ease;
+}
 
 .my-btn {
     font-family: inherit;
@@ -252,4 +255,28 @@ h1 {
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     transition: bottom 500ms ease, opacity 500ms ease;
+}
+
+#grand-progress-bar-container {
+    position: fixed;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    z-index: 6003;
+    transition: all 500ms ease;
+}
+
+#grand-progress-bar {
+    background: rgba(180, 180, 180, 0.38);
+    border-radius: 50px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#grand-progress-bar-inner {
+    /*background: rgba(0, 0, 0, 0.5);*/
+    border-radius: 50px;
+    width: 90px;
+    height: 5px;
+    transition: none;
 }
