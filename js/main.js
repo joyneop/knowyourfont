@@ -16,7 +16,7 @@ KYF.manifest = [
         "questions": [
             { "type": "A", "targetFont": "Times New Roman", "answer": "3" },
             { "type": "A", "targetFont": "Georgia", "answer": "1" },
-            { "type": "A", "targetFont": "Palatino", "answer": "1" },
+            { "type": "A", "targetFont": "Palatino", "answer": "2" },
             { "type": "A", "targetFont": "Charter", "answer": "3" },
             { "type": "A", "targetFont": "Garamond", "answer": "2" },
             { "type": "A", "targetFont": "Bodoni", "answer": "2" }
@@ -91,7 +91,7 @@ KYF.userDidClickStartGameButton = function () {
             this_.style.display = 'none';
         }, 510);
         // Shadow
-        document.getElementById('content').style.boxShadow = 'rgba(0, 0, 0, 0.05) 0 -3vh 20vh inset';
+        // document.getElementById('content').style.boxShadow = 'rgba(0, 0, 0, 0.05) 0 -3vh 20vh inset';
         // Logo
         var logo = document.getElementById('grand-logo');
         var logo_cont = document.getElementById('grand-logo-container');
@@ -104,7 +104,7 @@ KYF.userDidClickStartGameButton = function () {
             document.body.setAttribute('data-page-type', 'question');
             setTimeout(function () {
                 document.getElementById('content-2').style.opacity = '1';
-                document.getElementById('grand-progress-bar-container').style.top = '5px';
+                document.getElementById('grand-progress-bar-container').style.top = '13px';
             }, 300);
         // }, 600);
         }, 200);
@@ -144,7 +144,7 @@ KYF.setCurrentQuestion = function (targetQuestion) {
 
 KYF.setProgressBar = function (progressVal) {
     // float progressVal in math range [0,1]
-    progressVal = progressVal || ((KYF._.currentQuestionIndexAmongAll+1)/KYF._.questionsCount);
+    progressVal = progressVal || ((KYF.getCurrentQuestion()+1)/KYF.manifest[KYF.getCurrentChapter()-1].questions.length);
     document.getElementById('grand-progress-bar-inner').style.width = (String(progressVal * 100)).slice(0,5) + '%';
 };
 
@@ -156,21 +156,22 @@ KYF.moveToScoreScreen = function () {
         userScore = Math.floor(KYF._.corrects / KYF._.questionsCount * 1600);
     };
     var userRemark = 'Absolutely Perfect!';
-    if (userScore < 1500) {
-        userRemark = 'Almost Perfect!';
+    if (userScore < 1550) {
+        userRemark = 'Perfect';
     };
-    if (userScore < 1300) {
-        userRemark = 'You\'re very good!';
-    };
-    if (userScore < 1100) {
-        userRemark = 'Good!';
+    if (userScore < 1200) {
+        userRemark = 'Awesome!';
     };
     if (userScore < 900) {
-        userRemark = 'Quite Fine!';
+        userRemark = 'Good';
     };
-    if (userScore < 700) {
-        userRemark = 'You are about the average';
+    if (userScore < 850) {
+        userRemark = 'Quite Okay';
     };
+    if (userScore < 650) {
+        userRemark = 'You\'re the majority';
+    };
+    // document.getElementById('js-ShareButton-twitter').href = 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fknowyourfont.com&ref_src=twsrc%5Etfw&related=typography&text=I%20scored%20__MY_SCORE__%20out%20of%201600%20on%20%40know_your_font%2C%20the%20%23typograhy%20adventure&tw_p=tweetbutton&url=https%3A%2F%2Fknowyourfont.com'.replace('__MY_SCORE__', userScore);
     document.getElementById('data-user-score').innerHTML = userScore;
     document.getElementById('data-user-remark').innerHTML = userRemark;
     setTimeout(function () {
@@ -185,29 +186,46 @@ KYF.moveToScoreScreen = function () {
     // alert('Game finished! ' + KYF._.corrects + ' out of ' + KYF._.questionsCount);
 };
 
+KYF.showOptionCorrectnessIndicator = function () {
+    document.querySelectorAll('[data-option-indicator="KKK"]'.replace('KKK', KYF.manifest[KYF.getCurrentChapter()-1].questions[KYF.getCurrentQuestion()].correctOption))[0].style.opacity = 1;
+};
+
+KYF.hideOptionCorrectnessIndicator = function () {
+    document.querySelectorAll('[data-option-indicator="KKK"]'.replace('KKK', KYF.manifest[KYF.getCurrentChapter()-1].questions[KYF.getCurrentQuestion()].correctOption))[0].style.opacity = 0;
+};
+
 KYF.userDidClickOptionButton = function (ev_) {
     console.log(KYF._.corrects);
-    var that = this;
+    KYF._.that = this;
+
+    // Reveal the correct choice
     KYF.setProgressBar();
-    KYF.submitAnswer(that.getAttribute('data-option'));
-    // console.log('This is KYF.userDidClickOptionButton', KYF.getCurrentQuestion(), KYF.manifest[KYF.getCurrentChapter()-1].questions.length-1);
-    if (KYF.getCurrentQuestion() !== KYF.manifest[KYF.getCurrentChapter()-1].questions.length-1) {
-        // The response is not to the last question in current chapter
-        // Move to next challenge
-        KYF.setCurrentQuestion(KYF.getCurrentQuestion()+1);
-        KYF.getQuestionDetails(null,null,true);
-    } else {
-        // The response is to the last question in current chapter
-        if (KYF.getCurrentChapter() != KYF.manifest.length) {
-            // Move to next chapter
-            KYF.setCurrentChapter(KYF.getCurrentChapter()+1);
-            KYF.setCurrentQuestion(0);
+    KYF.showOptionCorrectnessIndicator();
+    setTimeout(KYF.hideOptionCorrectnessIndicator, 650);
+
+    // Actually move to next
+    setTimeout(function () {
+        //
+        KYF.submitAnswer(KYF._.that.getAttribute('data-option'));
+        if (KYF.getCurrentQuestion() !== KYF.manifest[KYF.getCurrentChapter()-1].questions.length-1) {
+            // The response is not to the last question in current chapter
+            // Move to next challenge
+            KYF.setCurrentQuestion(KYF.getCurrentQuestion()+1);
             KYF.getQuestionDetails(null,null,true);
         } else {
-            // Game ends
-            KYF.moveToScoreScreen();
-        }
-    }
+            // The response is to the last question in current chapter
+            if (KYF.getCurrentChapter() != KYF.manifest.length) {
+                // Move to next chapter
+                KYF.setProgressBar(0.00001);
+                KYF.setCurrentChapter(KYF.getCurrentChapter()+1);
+                KYF.setCurrentQuestion(0);
+                KYF.getQuestionDetails(null,null,true);
+            } else {
+                // Game ends
+                KYF.moveToScoreScreen();
+            };
+        };
+    }, 800);
 };
 
 KYF.submitAnswer = function (answerStr) {
@@ -219,7 +237,9 @@ KYF.submitAnswer = function (answerStr) {
 };
 
 KYF.shareFB = function () { alert('Functionality not implemented yet.') };
-KYF.shareTW = function () { alert('Functionality not implemented yet.') };
+
+KYF.shareTW = function () {
+};
 
 
 

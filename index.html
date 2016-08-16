@@ -16,12 +16,14 @@
 
         <!-- Prefetch: WOFF -->
         <link rel="prefetch" href="/fonts/open-sans/OpenSans.woff" />
+        <link rel="prefetch" href="/fonts/fontawesome-webfont.woff" />
 
         <!-- Prefetch: Data -->
         <link rel="prefetch" href="/manifest.json" />
 
         <!-- Styles -->
         <link rel="stylesheet" href="/fonts/open-sans.css" />
+        <link rel="stylesheet" href="/fonts/font-awesome.css" />
         <link rel="stylesheet" href="/fonts/advanced.css" />
         <link rel="stylesheet" href="/css/main.css" />
 
@@ -80,6 +82,20 @@
                             <div class="option contextual-border" data-option="C">
                             </div>
                         </div>
+                        <div class="option-correctness-indicators">
+                            <div class="option-correctness-indicator" data-option-indicator="A">
+                                <!-- <i class="contextual-color fa fa-check-circle-o" aria-hidden="true"></i> -->
+                                Correct ✓
+                            </div>
+                            <div class="option-correctness-indicator" data-option-indicator="B">
+                                <!-- <i class="contextual-color fa fa-check-circle-o" aria-hidden="true"></i> -->
+                                Correct ✓
+                            </div>
+                            <div class="option-correctness-indicator" data-option-indicator="C">
+                                <!-- <i class="contextual-color fa fa-check-circle-o" aria-hidden="true"></i> -->
+                                Correct ✓
+                            </div>
+                        </div>
                     </div>
                     <div>
                     </div>
@@ -89,14 +105,14 @@
                         <img class="js-TheLogo" src="/img/logo-b.png" width="100" height="100">
                     </header>
                     <div style="padding-top: 70px;">
-                        <div style="font-size: 24px; font-weight: 300; letter-spacing: 2px;">
+                        <div style="font-size: 24px; font-weight: 300;">
                             <span id="data-user-remark">YOUR SCORE</span>
                         </div>
                         <div style="font-size: 60px; font-weight: 300; padding-top: 45px;">
                             <span><span id="data-user-score"></span> / 1600</span>
                         </div>
                         <div style="font-size: 24px; font-weight: 300; padding-top: 45px;">
-                            <span>Share on <span class="underline cursor-pointer" onclick="KYF.shareFB()">Facebook</span> or <span class="underline cursor-pointer" onclick="KYF.shareTW()">Twitter</span>?</span>
+                            <span>Share on <span class="underline cursor-pointer" onclick="KYF.shareFB()">Facebook</span> or <a id="js-ShareButton-twitter" class="underline cursor-pointer" target="_blank">Twitter</a>?</span>
                         </div>
                     </div>
                 </div>
@@ -109,6 +125,10 @@
             <button id="js-TheButton" type="button" class="my-btn contextual-border contextual-color">Start Game</button>
             <div id="grand-progress-bar-container"><div id="grand-progress-bar"><div id="grand-progress-bar-inner" class="contextual-fill"></div></div></div>
         </div>
+        <div style="background: #FFF; position: fixed; top: 0; left: 0; width: 100vw; height: 8px; z-index: 9999;"></div>
+        <div style="background: #FFF; position: fixed; bottom: 0; left: 0; width: 100vw; height: 8px; z-index: 9999;"></div>
+        <div style="background: #FFF; position: fixed; top: 0; left: 0; width: 8px; height: 100vh; z-index: 9999;"></div>
+        <div style="background: #FFF; position: fixed; top: 0; right: 0; width: 8px; height: 100vh; z-index: 9999;"></div>
 
         <!-- /StandAloneObjects -->
 
