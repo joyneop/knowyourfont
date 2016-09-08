@@ -1,7 +1,7 @@
 window.KYF = {
     '_': {
         initialized: false,
-        questionsCount: 10,
+        questionsCount: 22,
         currentQuestionIndexAmongAll: 0,
         corrects: 0
     }
@@ -15,10 +15,22 @@ KYF.manifest = [
     {
         "questions": [
             { "type": "A", "targetFont": "Times New Roman", "answer": "3" },
+            { "type": "A", "targetFont": "Times New Roman", "answer": "3" },
+            { "type": "A", "targetFont": "Times New Roman", "answer": "3" },
+            { "type": "A", "targetFont": "Georgia", "answer": "1" },
+            { "type": "A", "targetFont": "Georgia", "answer": "1" },
             { "type": "A", "targetFont": "Georgia", "answer": "1" },
             { "type": "A", "targetFont": "Palatino", "answer": "2" },
+            { "type": "A", "targetFont": "Palatino", "answer": "2" },
+            { "type": "A", "targetFont": "Palatino", "answer": "2" },
+            { "type": "A", "targetFont": "Charter", "answer": "3" },
+            { "type": "A", "targetFont": "Charter", "answer": "3" },
             { "type": "A", "targetFont": "Charter", "answer": "3" },
             { "type": "A", "targetFont": "Garamond", "answer": "2" },
+            { "type": "A", "targetFont": "Garamond", "answer": "2" },
+            { "type": "A", "targetFont": "Garamond", "answer": "2" },
+            { "type": "A", "targetFont": "Bodoni", "answer": "2" },
+            { "type": "A", "targetFont": "Bodoni", "answer": "2" },
             { "type": "A", "targetFont": "Bodoni", "answer": "2" }
         ]
     },
@@ -73,12 +85,15 @@ KYF.setBackgrounds = function (chapterId) {
 };
 
 KYF.typeTextIntoElement = function (text, elem) {
-    elem.innerHTML = '';
-    text.split('').map(function (char, index) {
-        window.setTimeout(function () {
-            elem.innerHTML += char;
-        }, 40*(index-(function(){if(text.slice(0, index).match(/\s/g) === null){return 0}else{return text.slice(0, index).match(/\s/g).length}})() ));
-    });
+    if (elem.innerHTML !== text) {
+        // elem.innerHTML = '';
+        elem.innerHTML = text;
+        // text.split('').map(function (char, index) {
+        //     window.setTimeout(function () {
+        //         elem.innerHTML += char;
+        //     }, 40*(index-(function(){if(text.slice(0, index).match(/\s/g) === null){return 0}else{return text.slice(0, index).match(/\s/g).length}})() ));
+        // });
+    };
 };
 
 KYF.userDidClickStartGameButton = function () {
@@ -123,7 +138,7 @@ KYF.getQuestionDetails = function (chapterId, questionIndex, shouldRewriteDOM) {
         for (var i = 0; i < document.querySelectorAll('.option').length; i++) {
             document.querySelectorAll('.option')[i].style.backgroundImage = 'url(/img/can/AA-BB-CC.png)'.replace('AA', chapterId).replace('BB', questionIndex).replace('CC', KYF.manifest[chapterId-1].questions[questionIndex].optionsArrangement[i]);
         };
-        KYF.typeTextIntoElement('Which font is Times?'.replace('Times', KYF.manifest[chapterId-1].questions[questionIndex].targetFont), document.getElementById('my-question'));
+        KYF.typeTextIntoElement('Which font is <strong>Times</strong>?'.replace('Times', KYF.manifest[chapterId-1].questions[questionIndex].targetFont), document.getElementById('my-question'));
         document.getElementById('my-chapter-h2').innerHTML = 'Chapter ?'.replace('?', chapterId);
         document.getElementById('my-challenge-h3').innerHTML = 'Challenge ?'.replace('?', questionIndex+1);
         // KYF.
@@ -171,19 +186,20 @@ KYF.moveToScoreScreen = function () {
     if (userScore < 650) {
         userRemark = 'You\'re the majority';
     };
-    // document.getElementById('js-ShareButton-twitter').href = 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fknowyourfont.com&ref_src=twsrc%5Etfw&related=typography&text=I%20scored%20__MY_SCORE__%20out%20of%201600%20on%20%40know_your_font%2C%20the%20%23typograhy%20adventure&tw_p=tweetbutton&url=https%3A%2F%2Fknowyourfont.com'.replace('__MY_SCORE__', userScore);
+    document.getElementById('js-ShareButton-twitter').href = 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fknowyourfont.com&ref_src=twsrc%5Etfw&related=typography&text=I%20scored%20__MY_SCORE__%20out%20of%201600%20on%20%40know_your_font%2C%20the%20%23typograhy%20adventure&tw_p=tweetbutton&url=https%3A%2F%2Fknowyourfont.com'.replace('__MY_SCORE__', userScore);
+    document.getElementById('meta-description').setAttribute('content', 'I scored userScore on KnowYourFont.com')
     document.getElementById('data-user-score').innerHTML = userScore;
     document.getElementById('data-user-remark').innerHTML = userRemark;
     setTimeout(function () {
         document.body.setAttribute('data-page-type', 'result');
         setTimeout(function () {
-            document.getElementById('content-1').remove();
-            document.getElementById('content-2').remove();
+            // document.getElementById('content-1').remove();
+            // document.getElementById('content-2').remove();
             document.getElementById('content-3').style.opacity = '1';
             document.getElementById('grand-progress-bar-container').style.top = '-5px';
         }, 300);
     }, 40);
-    // alert('Game finished! ' + KYF._.corrects + ' out of ' + KYF._.questionsCount);
+    alert('Game finished! ' + KYF._.corrects + ' out of ' + KYF._.questionsCount);
 };
 
 KYF.showOptionCorrectnessIndicator = function () {
@@ -195,7 +211,7 @@ KYF.hideOptionCorrectnessIndicator = function () {
 };
 
 KYF.userDidClickOptionButton = function (ev_) {
-    console.log(KYF._.corrects);
+    // console.log(KYF._.corrects);
     KYF._.that = this;
 
     // Reveal the correct choice
@@ -229,17 +245,16 @@ KYF.userDidClickOptionButton = function (ev_) {
 };
 
 KYF.submitAnswer = function (answerStr) {
-    // console.log(answerStr, KYF.getCurrentChapter(), KYF.getCurrentQuestion(), KYF.getQuestionDetails(KYF.getCurrentChapter(), KYF.getCurrentQuestion()).correctOption);
     KYF._.currentQuestionIndexAmongAll += 1;
     if (KYF.getQuestionDetails(KYF.getCurrentChapter(), KYF.getCurrentQuestion()).correctOption === answerStr) {
         KYF._.corrects += 1;
     };
+    // console.log('Answer: ', answerStr, '; Chapter:', KYF.getCurrentChapter(), '; Question:', KYF.getCurrentQuestion(), '; CorrectOption:', KYF.getQuestionDetails(KYF.getCurrentChapter(), KYF.getCurrentQuestion()).correctOption, '; TotalCorrects: ', KYF._.corrects);
 };
 
 KYF.shareFB = function () { alert('Functionality not implemented yet.') };
 
-KYF.shareTW = function () {
-};
+KYF.shareTW = function () { };
 
 
 
@@ -256,7 +271,7 @@ KYF.init = function () {
             };
             document.getElementById('js-TheButton').addEventListener('click', KYF.userDidClickStartGameButton);
         })();
-        KYF.getQuestionDetails(null,null,true);
+        KYF.getQuestionDetails(null, null, true);
     };
 }
 
