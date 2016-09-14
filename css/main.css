@@ -265,13 +265,10 @@ h1 {
 }
 
 #js-TheButton {
-    position: fixed;
-    bottom: 100px;
-    left: 50vw;
-    z-index: 6000;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    transition: bottom 500ms ease, opacity 500ms ease;
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: top 4500ms ease, opacity 500ms ease;
 }
 
 #grand-progress-bar-container {
@@ -291,7 +288,6 @@ h1 {
 }
 
 #grand-progress-bar-inner {
-    /*background: rgba(0, 0, 0, 0.5);*/
     border-radius: 50px;
     width: 90px;
     height: 5px;

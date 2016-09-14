@@ -1,7 +1,7 @@
 window.KYF = {
     '_': {
         initialized: false,
-        questionsCount: 22,
+        questionsCount: 54,
         currentQuestionIndexAmongAll: 0,
         corrects: 0
     }
@@ -37,13 +37,45 @@ KYF.manifest = [
     {
         "questions": [
             { "type": "A", "targetFont": "Futura", "answer": "3" },
-            { "type": "A", "targetFont": "Verdana", "answer": "3" }
+            { "type": "A", "targetFont": "Futura", "answer": "3" },
+            { "type": "A", "targetFont": "Futura", "answer": "3" },
+            { "type": "A", "targetFont": "Avenir", "answer": "1" },
+            { "type": "A", "targetFont": "Avenir", "answer": "1" },
+            { "type": "A", "targetFont": "Avenir", "answer": "1" },
+            { "type": "A", "targetFont": "Helvetica", "answer": "3" },
+            { "type": "A", "targetFont": "Helvetica", "answer": "3" },
+            { "type": "A", "targetFont": "Helvetica", "answer": "3" },
+            { "type": "A", "targetFont": "Gill Sans", "answer": "2" },
+            { "type": "A", "targetFont": "Gill Sans", "answer": "2" },
+            { "type": "A", "targetFont": "Gill Sans", "answer": "2" },
+            { "type": "A", "targetFont": "Verdana", "answer": "1" },
+            { "type": "A", "targetFont": "Verdana", "answer": "1" },
+            { "type": "A", "targetFont": "Verdana", "answer": "1" },
+            { "type": "A", "targetFont": "DIN", "answer": "2" },
+            { "type": "A", "targetFont": "DIN", "answer": "2" },
+            { "type": "A", "targetFont": "DIN", "answer": "2" }
         ]
     },
     {
         "questions": [
             { "type": "A", "targetFont": "Myriad Pro", "answer": "2" },
-            { "type": "A", "targetFont": "Open Sans", "answer": "1" }
+            { "type": "A", "targetFont": "Myriad Pro", "answer": "2" },
+            { "type": "A", "targetFont": "Myriad Pro", "answer": "2" },
+            { "type": "A", "targetFont": "Open Sans", "answer": "1" },
+            { "type": "A", "targetFont": "Open Sans", "answer": "1" },
+            { "type": "A", "targetFont": "Open Sans", "answer": "1" },
+            { "type": "A", "targetFont": "Roboto", "answer": "2" },
+            { "type": "A", "targetFont": "Roboto", "answer": "2" },
+            { "type": "A", "targetFont": "Roboto", "answer": "2" },
+            { "type": "A", "targetFont": "Source Sans Pro", "answer": "2" },
+            { "type": "A", "targetFont": "Source Sans Pro", "answer": "2" },
+            { "type": "A", "targetFont": "Source Sans Pro", "answer": "2" },
+            { "type": "A", "targetFont": "Montserrant", "answer": "2" },
+            { "type": "A", "targetFont": "Montserrant", "answer": "2" },
+            { "type": "A", "targetFont": "Montserrant", "answer": "2" },
+            { "type": "A", "targetFont": "San Francisco", "answer": "2" },
+            { "type": "A", "targetFont": "San Francisco", "answer": "2" },
+            { "type": "A", "targetFont": "San Francisco", "answer": "2" }
         ]
     }
 ];
@@ -100,8 +132,8 @@ KYF.userDidClickStartGameButton = function () {
     var this_ = this;
     if (this_.innerText === 'Start Game') {
         // Button
-        this_.style.bottom = '20px'
-        this_.style.opacity = '0'
+        this_.style.top = '80vh';
+        this_.style.opacity = '0';
         setTimeout(function () {
             this_.style.display = 'none';
         }, 510);
@@ -119,7 +151,7 @@ KYF.userDidClickStartGameButton = function () {
             document.body.setAttribute('data-page-type', 'question');
             setTimeout(function () {
                 document.getElementById('content-2').style.opacity = '1';
-                document.getElementById('grand-progress-bar-container').style.top = '13px';
+                document.getElementById('grand-progress-bar-container').style.top = '5px';
             }, 300);
         // }, 600);
         }, 200);
@@ -136,7 +168,7 @@ KYF.getQuestionDetails = function (chapterId, questionIndex, shouldRewriteDOM) {
     // Put into DOM
     if (shouldRewriteDOM) {
         for (var i = 0; i < document.querySelectorAll('.option').length; i++) {
-            document.querySelectorAll('.option')[i].style.backgroundImage = 'url(/img/can/AA-BB-CC.png)'.replace('AA', chapterId).replace('BB', questionIndex).replace('CC', KYF.manifest[chapterId-1].questions[questionIndex].optionsArrangement[i]);
+            document.querySelectorAll('.option')[i].style.backgroundImage = 'url(/img/can/AA/1-BB-CC.png)'.replace('AA', chapterId).replace('BB', questionIndex).replace('CC', KYF.manifest[chapterId-1].questions[questionIndex].optionsArrangement[i]);
         };
         KYF.typeTextIntoElement('Which font is <strong>Times</strong>?'.replace('Times', KYF.manifest[chapterId-1].questions[questionIndex].targetFont), document.getElementById('my-question'));
         document.getElementById('my-chapter-h2').innerHTML = 'Chapter ?'.replace('?', chapterId);
@@ -170,7 +202,7 @@ KYF.moveToScoreScreen = function () {
     } else if (KYF._.corrects < KYF._.questionsCount) {
         userScore = Math.floor(KYF._.corrects / KYF._.questionsCount * 1600);
     };
-    var userRemark = 'Absolutely Perfect!';
+    var userRemark = 'You must cheated!';
     if (userScore < 1550) {
         userRemark = 'Perfect';
     };

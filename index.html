@@ -3,10 +3,22 @@
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="autuor" content="Joy Neop">
         <meta id="meta-description" name='description' content='Know how familiar you are with the most famous fonts.'>
-        <meta id="meta-description" name='keywords' content='The keywords.'>
+        <meta id="meta-description" name='keywords' content='font|fonts|typography'>
         <title>Know Your Font</title>
+        <script>
+    	(function () {
+    		if (localStorage['debug-mode-78912478987432978'] === 'enabled' || (navigator.language.indexOf('zh') >= 0 && window.innerWidth > 768)) {
+    			// "zh" can be found in browser langauge
+    			var meta = document.createElement('meta');
+    			meta.setAttribute('name', 'xtjj');
+    			meta.setAttribute('content', '571b4eb9128fe12b4a3466af;top-right;white-transparent');
+    			document.head.appendChild(meta);
+    		};
+    	})();
+    	</script>
 
         <!-- Prefetch: Backgrounds -->
         <link rel="prefetch" href="/img/bg/c1-bg1.jpg" />
@@ -38,12 +50,12 @@
         -->
         <script>
         (function () {
-            [6,2,2].map(function (chapterSize, chapter) {
+            [18,18,18].map(function (chapterSize, chapter) {
                 (new Array(chapterSize)).fill(1).map(function (_a, _b) { return _b+1 }).map(function (_a, _b) {
                     for (var i = 1; i < 4; i++) {
                         var tag = document.createElement('link');
                         tag.setAttribute('rel', 'prefetch');
-                        tag.setAttribute('href', '/img/can/' + (chapter+1) + '-' + (_b+1) + '-' + i + '.png');
+                        tag.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png');
                         document.head.appendChild(tag);
                     };
                 });
@@ -59,8 +71,12 @@
             <div id="content">
                 <div id="content-1">
                     <header>
-                        <div style="height: 320px;"></div>
+                        <div style="height: 290px;"></div>
                         <h1 id="grand-h1">The Typography Adventure</h1>
+                        <div style="height: 60px;"></div>
+                        <div>
+                            <button id="js-TheButton" type="button" class="my-btn contextual-border contextual-color">Start Game</button>
+                        </div>
                     </header>
                 </div>
                 <div id="content-2">
@@ -128,7 +144,6 @@
         <!-- StandAloneObjects -->
         <div id="js-StandAloneObjectsContainer">
             <div id="grand-logo-container"><img id="grand-logo" class="js-TheLogo-xl" src="/img/logo-b@6x.png"></div>
-            <button id="js-TheButton" type="button" class="my-btn contextual-border contextual-color">Start Game</button>
             <div id="grand-progress-bar-container"><div id="grand-progress-bar"><div id="grand-progress-bar-inner" class="contextual-fill"></div></div></div>
         </div>
         <!-- <div style="background: #FFF; position: fixed; top: 0; left: 0; width: 100vw; height: 8px; z-index: 9999;"></div> -->
@@ -138,10 +153,10 @@
 
         <!-- /StandAloneObjects -->
 
-        <div id="mobile-not-supported" style="">
+        <aside id="mobile-not-supported" style="">
             <div>Mobile is not supported.</div>
             <div>Please use a device at least 768px wide.</div>
-        </div>
+        </aside>
 
         <script>
         if (window.innerWidth < 768) {
@@ -161,6 +176,7 @@
             };
         });
         </script>
+        <script src="https://cdn.neop.me/xtjj/xtjj.js"></script>
 
     </body>
 </html>
