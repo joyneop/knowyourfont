@@ -76,21 +76,21 @@
         <script>
         (function () {
             [18,18,18].map(function (chapterSize, chapter) {
-                (new Array(chapterSize)).fill(1).map(function (_a, _b) { return _b }).map(function (_a, _b) {
+                (new Array(chapterSize)).fill(1).map(function (a, b) { return _b }).map(function (_a, _b) {
                     for (var i = 1; i < 4; i++) {
-                        var tagSubr = document.createElement('link');
-                        tagSubr.setAttribute('rel', 'subresource');
-                        tagSubr.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
-                        document.head.appendChild(tagSubr);
                         var tagPref = document.createElement('link');
                         tagPref.setAttribute('rel', 'prefetch');
                         tagPref.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
                         document.head.appendChild(tagPref);
-                        if (_b < 5) {
+                        if (_b < 4) {
+                            var tagSubr = document.createElement('link');
+                            tagSubr.setAttribute('rel', 'subresource');
+                            tagSubr.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
+                            document.head.appendChild(tagSubr);
                             var img__ = new Image();
                             img__.src = '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png';
-                            img__.onload = function () { console.log('Prefetched.') }
-                        }
+                            img__.onload = function () { console.log('Prefetched.') };
+                        };
                     };
                 });
             });
