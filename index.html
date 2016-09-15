@@ -32,6 +32,12 @@
     	})();
     	</script>
 
+        <!-- Prefetch: Images -->
+        <link rel="prefetch" href="/img/logo-b@6x.png" />
+        <link rel="prefetch" href="/img/logo-b.png" />
+        <link rel="prefetch" href="/img/logo-w.png" />
+        <link rel="prefetch" href="/img/social-sharing-splash-image.jpg" />
+
         <!-- Prefetch: Backgrounds -->
         <link rel="prefetch" href="/img/bg/c1-bg1.jpg" />
         <link rel="prefetch" href="/img/bg/c1-bg2.jpg" />
@@ -63,7 +69,7 @@
         <script>
         (function () {
             [18,18,18].map(function (chapterSize, chapter) {
-                (new Array(chapterSize)).fill(1).map(function (_a, _b) { return _b+1 }).map(function (_a, _b) {
+                (new Array(chapterSize)).fill(1).map(function (_a, _b) { return _b }).map(function (_a, _b) {
                     for (var i = 1; i < 4; i++) {
                         var tag = document.createElement('link');
                         tag.setAttribute('rel', 'prefetch');
@@ -142,7 +148,7 @@
                             <span id="data-user-score"></span><div style="font-size: 14px; color: #999;">out of 1600</div>
                         </div>
                         <div style="font-size: 24px; font-weight: 300;">
-                            <span>Share on <a class="underline cursor-pointer" target="_blank" href="https://www.facebook.com/sharer/sharer.php?app_id=1639219346368770&sdk=joey&u=http%3A%2F%2Fknowyourfont.com%2F&display=popup&ref=plugin&src=share_button">Facebook</a> or <a id="js-ShareButton-twitter" class="underline cursor-pointer" target="_blank">Twitter</a>?</span>
+                            <span>Share on <a class="underline cursor-pointer" target="_blank" href="https://www.facebook.com/sharer/sharer.php?app_id=1639219346368770&sdk=joey&u=https%3A%2F%2Fknowyourfont.com%2F&display=popup&ref=plugin&src=share_button">Facebook</a> or <a id="js-ShareButton-twitter" class="underline cursor-pointer" target="_blank">Twitter</a>?</span>
                         </div>
                     </div>
                     <div>
