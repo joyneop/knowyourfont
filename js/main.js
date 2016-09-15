@@ -290,17 +290,11 @@ KYF.submitAnswer = function (answerStr) {
     // console.log('Answer: ', answerStr, '; Chapter:', KYF.getCurrentChapter(), '; Question:', KYF.getCurrentQuestion(), '; CorrectOption:', KYF.getQuestionDetails(KYF.getCurrentChapter(), KYF.getCurrentQuestion()).correctOption, '; TotalCorrects: ', KYF._.corrects);
 };
 
-// KYF.shareFB = function () { alert('Functionality not implemented yet.') };
-
-KYF.shareTW = function () { };
-
-
-
-
 KYF.init = function () {
     if (!KYF._.initialized) {
         KYF._.initialized = true;
         KYF.setProgressBar(0.00001);
+        document.body.style.opacity = '1';
 
         (function () {
             // listen to `click` event on `.option` elements
