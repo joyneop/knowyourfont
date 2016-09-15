@@ -2,11 +2,23 @@
 <html lang='en'>
     <head>
         <meta charset='utf-8'>
+        <script>
+        if (window.location.host !== 'konwyourfont.com') {
+            // window.location.replace('https://knowyourfont.com/')
+        };
+        </script>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="autuor" content="Joy Neop">
-        <meta id="meta-description" name='description' content='Know how familiar you are with the most famous fonts.'>
+        <meta name='description' content='Know how familiar you are with the most famous fonts.'>
         <meta id="meta-description" name='keywords' content='font|fonts|typography'>
+
+        <meta property="og:url" content="https://knowyourfont.com/" />
+        <meta property="og:type" content="article" />
+        <meta id="meta-og-title" property="og:title" content="Know Your Font" />
+        <meta property="og:description" content="Know how familiar you are with the most famous fonts." />
+        <meta property="og:image" content="https://knowyourfont.com/social-sharing-splash-image.jpg" />
+
         <title>Know Your Font</title>
         <script>
     	(function () {
@@ -14,7 +26,7 @@
     			// "zh" can be found in browser langauge
     			var meta = document.createElement('meta');
     			meta.setAttribute('name', 'xtjj');
-    			meta.setAttribute('content', '571b4eb9128fe12b4a3466af;top-right;white-transparent');
+    			meta.setAttribute('content', '571b4eb9128fe12b4a3466af;top-right;111111-transparent');
     			document.head.appendChild(meta);
     		};
     	})();
@@ -87,7 +99,7 @@
                         <h2 id="my-chapter-h2">Chapter 1</h2>
                         <div class="separation contextual-fill"></div>
                         <h3 id="my-challenge-h3">Challenge 1</h3>
-                        <p id="my-question">Which font is Times?</p>
+                        <p id="my-question">Which font is <strong id="my-question-fontname">Times</strong>?</p>
                     </div>
                     <div class="options-playground" data-options-playground-type="A">
                         <div class="before-options">
@@ -130,7 +142,7 @@
                             <span id="data-user-score"></span><div style="font-size: 14px; color: #999;">out of 1600</div>
                         </div>
                         <div style="font-size: 24px; font-weight: 300;">
-                            <span>Share on <span class="underline cursor-pointer" onclick="KYF.shareFB()">Facebook</span> or <a id="js-ShareButton-twitter" class="underline cursor-pointer" target="_blank">Twitter</a>?</span>
+                            <span>Share on <a class="underline cursor-pointer" target="_blank" href="https://www.facebook.com/sharer/sharer.php?app_id=1639219346368770&sdk=joey&u=http%3A%2F%2Fknowyourfont.com%2F&display=popup&ref=plugin&src=share_button">Facebook</a> or <a id="js-ShareButton-twitter" class="underline cursor-pointer" target="_blank">Twitter</a>?</span>
                         </div>
                     </div>
                     <div>

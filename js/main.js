@@ -99,8 +99,14 @@ KYF.setCurrentChapter = function (chapterId) {
     KYF.setBackgrounds(chapterId);
     if (chapterId === 2 || chapterId === 3) {
         [].map.call(document.querySelectorAll('.js-TheLogo, .js-TheLogo-xl'), function (elem) { elem.src = '/img/logo-w.png' });
+        if (document.getElementById('xtjj-4270203835628303')) {
+            document.getElementsByTagName('g')[0].setAttribute('fill', 'rgba(255, 255, 255, 0.7)');
+        }
     } else {
         [].map.call(document.querySelectorAll('.js-TheLogo'), function (elem) { elem.src = '/img/logo-b.png' });
+        if (document.getElementById('xtjj-4270203835628303')) {
+            document.getElementsByTagName('g')[0].setAttribute('fill', 'rgba(0, 0, 0, 0.4)');
+        }
     };
 };
 
@@ -118,13 +124,13 @@ KYF.setBackgrounds = function (chapterId) {
 
 KYF.typeTextIntoElement = function (text, elem) {
     if (elem.innerHTML !== text) {
-        // elem.innerHTML = '';
-        elem.innerHTML = text;
-        // text.split('').map(function (char, index) {
-        //     window.setTimeout(function () {
-        //         elem.innerHTML += char;
-        //     }, 40*(index-(function(){if(text.slice(0, index).match(/\s/g) === null){return 0}else{return text.slice(0, index).match(/\s/g).length}})() ));
-        // });
+        elem.innerHTML = '';
+        // elem.innerHTML = text;
+        text.split('').map(function (char, index) {
+            window.setTimeout(function () {
+                elem.innerHTML += char;
+            }, 40*(index-(function(){if(text.slice(0, index).match(/\s/g) === null){return 0}else{return text.slice(0, index).match(/\s/g).length}})() ));
+        });
     };
 };
 
@@ -170,7 +176,7 @@ KYF.getQuestionDetails = function (chapterId, questionIndex, shouldRewriteDOM) {
         for (var i = 0; i < document.querySelectorAll('.option').length; i++) {
             document.querySelectorAll('.option')[i].style.backgroundImage = 'url(/img/can/AA/1-BB-CC.png)'.replace('AA', chapterId).replace('BB', questionIndex).replace('CC', KYF.manifest[chapterId-1].questions[questionIndex].optionsArrangement[i]);
         };
-        KYF.typeTextIntoElement('Which font is <strong>Times</strong>?'.replace('Times', KYF.manifest[chapterId-1].questions[questionIndex].targetFont), document.getElementById('my-question'));
+        KYF.typeTextIntoElement(KYF.manifest[chapterId-1].questions[questionIndex].targetFont, document.getElementById('my-question-fontname'));
         document.getElementById('my-chapter-h2').innerHTML = 'Chapter ?'.replace('?', chapterId);
         document.getElementById('my-challenge-h3').innerHTML = 'Challenge ?'.replace('?', questionIndex+1);
         // KYF.
@@ -219,7 +225,7 @@ KYF.moveToScoreScreen = function () {
         userRemark = 'You\'re the majority';
     };
     document.getElementById('js-ShareButton-twitter').href = 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fknowyourfont.com&ref_src=twsrc%5Etfw&related=typography&text=I%20scored%20__MY_SCORE__%20out%20of%201600%20on%20%40know_your_font%2C%20the%20%23typograhy%20adventure&tw_p=tweetbutton&url=https%3A%2F%2Fknowyourfont.com'.replace('__MY_SCORE__', userScore);
-    document.getElementById('meta-description').setAttribute('content', 'I scored userScore on KnowYourFont.com')
+    document.getElementById('meta-og-title').setAttribute('content', 'I scored userScore on KnowYourFont.com'.replace('userScore', userScore))
     document.getElementById('data-user-score').innerHTML = userScore;
     document.getElementById('data-user-remark').innerHTML = userRemark;
     setTimeout(function () {
@@ -231,7 +237,7 @@ KYF.moveToScoreScreen = function () {
             document.getElementById('grand-progress-bar-container').style.top = '-5px';
         }, 300);
     }, 40);
-    alert('Game finished! ' + KYF._.corrects + ' out of ' + KYF._.questionsCount);
+    // alert('Game finished! ' + KYF._.corrects + ' out of ' + KYF._.questionsCount);
 };
 
 KYF.showOptionCorrectnessIndicator = function () {
@@ -284,7 +290,7 @@ KYF.submitAnswer = function (answerStr) {
     // console.log('Answer: ', answerStr, '; Chapter:', KYF.getCurrentChapter(), '; Question:', KYF.getCurrentQuestion(), '; CorrectOption:', KYF.getQuestionDetails(KYF.getCurrentChapter(), KYF.getCurrentQuestion()).correctOption, '; TotalCorrects: ', KYF._.corrects);
 };
 
-KYF.shareFB = function () { alert('Functionality not implemented yet.') };
+// KYF.shareFB = function () { alert('Functionality not implemented yet.') };
 
 KYF.shareTW = function () { };
 
