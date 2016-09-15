@@ -63,10 +63,14 @@
             [18,18,18].map(function (chapterSize, chapter) {
                 (new Array(chapterSize)).fill(1).map(function (_a, _b) { return _b }).map(function (_a, _b) {
                     for (var i = 1; i < 4; i++) {
-                        var tag = document.createElement('link');
-                        tag.setAttribute('rel', 'subresource');
-                        tag.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png');
-                        document.head.appendChild(tag);
+                        var tagSubr = document.createElement('link');
+                        tagSubr.setAttribute('rel', 'subresource');
+                        tagSubr.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png');
+                        document.head.appendChild(tagSubr);
+                        var tagPref = document.createElement('link');
+                        tagPref.setAttribute('rel', 'prefetch');
+                        tagPref.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png');
+                        document.head.appendChild(tagPref);
                     };
                 });
             });
