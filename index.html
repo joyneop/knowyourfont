@@ -80,14 +80,14 @@
                     for (var i = 1; i < 4; i++) {
                         var tagSubr = document.createElement('link');
                         tagSubr.setAttribute('rel', 'subresource');
-                        tagSubr.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png');
+                        tagSubr.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
                         document.head.appendChild(tagSubr);
                         var tagPref = document.createElement('link');
                         tagPref.setAttribute('rel', 'prefetch');
-                        tagPref.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png');
+                        tagPref.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
                         document.head.appendChild(tagPref);
                         var img__ = new Image();
-                        img__.src = '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png';
+                        img__.src = '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png';
                         img__.onload = function () { console.log('Prefetched.') }
                     };
                 });
