@@ -86,9 +86,11 @@
                         tagPref.setAttribute('rel', 'prefetch');
                         tagPref.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
                         document.head.appendChild(tagPref);
-                        var img__ = new Image();
-                        img__.src = '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png';
-                        img__.onload = function () { console.log('Prefetched.') }
+                        if (_b < 5) {
+                            var img__ = new Image();
+                            img__.src = '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png';
+                            img__.onload = function () { console.log('Prefetched.') }
+                        }
                     };
                 });
             });
