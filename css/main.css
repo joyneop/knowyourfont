@@ -32,6 +32,10 @@ body {
     cursor: pointer;
 }
 
+.opacity-0 {
+    opacity: 0;
+}
+
 /* ------------------------------ */
 
 [data-page-type="chapterindex"] #content-1 {display: block;}
@@ -307,11 +311,36 @@ h1 {
     width: 100vw;
     height: 100vh;
     padding: 50px 20px 0;
-    z-index: 9889;
+    z-index: 9999;
+}
+
+#loading-splash {
+    font-family: -apple-system, 'SF UI Text', 'Segoe UI', 'Open Sans', 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    background: #FFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 50px 20px 0;
+    z-index: 9999;
+    transition: all ease 280ms;
+}
+
+#js-TheLodingTextLabel {
+    text-align: center;
+    position: absolute;
+    top: 50vh;
+    left: 0px;
+    width: 100vw;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 /* ------------------------------ */
 
 #xtjj-4270203835628303 {
-    z-index: 9999;
+    z-index: 8888;
 }

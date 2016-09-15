@@ -294,7 +294,14 @@ KYF.init = function () {
     if (!KYF._.initialized) {
         KYF._.initialized = true;
         KYF.setProgressBar(0.00001);
-        document.body.style.opacity = '1';
+        // document.getElementById('grand-cont').style.visibility = 'visible';
+        window.clearInterval(window.interval1);
+        window.clearInterval(window.interval2);
+        window.clearInterval(window.interval3);
+        document.getElementById('loading-splash').style.opacity = '0';
+        window.setTimeout(function () {
+            document.getElementById('loading-splash').remove();
+        }, 295);
 
         (function () {
             // listen to `click` event on `.option` elements

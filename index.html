@@ -69,7 +69,7 @@
         <!-- JS -->
         <script src="/js/main.js"></script>
     </head>
-    <body data-current-chapter="c1" data-current-question="q0" data-page-type="chapterindex">
+    <body data-current-chapter="c1" data-current-question="q0" data-page-type="chapterindex" style="opacity: 1;">
         <!--
             data-page-type: chapterindex|question|result
         -->
@@ -99,7 +99,7 @@
         <div id="grand-bg-layer-2"></div>
         <div id="grand-bg-layer-3"></div>
 
-        <div id="grand-cont">
+        <div id="grand-cont" style="">
             <div id="content">
                 <div id="content-1">
                     <header>
@@ -185,10 +185,38 @@
 
         <!-- /StandAloneObjects -->
 
-        <aside id="mobile-not-supported" style="">
+        <aside id="mobile-not-supported" style="color: #000;">
             <div>Mobile is not supported.</div>
             <div>Please use a device at least 768px wide.</div>
         </aside>
+
+        <aside id="loading-splash" style="color: #000;">
+            <div id="js-TheLodingTextLabel" style="color: #000;">Loading...</div>
+        </aside>
+        <script>
+        window.interval1 = window.setInterval(function () {
+            if (document.getElementById('js-TheLodingTextLabel')) {
+                document.getElementById('js-TheLodingTextLabel').innerHTML = 'Loading...';
+            };
+            console.log('A');
+        }, 999);
+        window.setTimeout(function () {
+            window.interval2 = window.setInterval(function () {
+                if (document.getElementById('js-TheLodingTextLabel')) {
+                    document.getElementById('js-TheLodingTextLabel').innerHTML = 'Loading.<span class="opacity-0">..</span>';
+                };
+                console.log('B');
+            }, 999);
+        }, 333);
+        window.setTimeout(function () {
+            window.interval3 = window.setInterval(function () {
+                if (document.getElementById('js-TheLodingTextLabel')) {
+                    document.getElementById('js-TheLodingTextLabel').innerHTML = 'Loading..<span class="opacity-0">.</span>';
+                };
+                console.log('C');
+            }, 999);
+        }, 666);
+        </script>
 
         <script>
         if (window.innerWidth < 768) {
