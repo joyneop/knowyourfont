@@ -74,6 +74,9 @@
                         tagPref.setAttribute('rel', 'prefetch');
                         tagPref.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png');
                         document.head.appendChild(tagPref);
+                        var img__ = new Image();
+                        img__.src = '/img/can/' + (chapter+1) + '/1-' + (_b+1) + '-' + i + '.png';
+                        img__.onload = function () { console.log('Prefetched.') }
                     };
                 });
             });
