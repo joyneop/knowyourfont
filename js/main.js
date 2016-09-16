@@ -70,9 +70,9 @@ KYF.manifest = [
             { "type": "A", "targetFont": "Source Sans Pro", "answer": "2" },
             { "type": "A", "targetFont": "Source Sans Pro", "answer": "2" },
             { "type": "A", "targetFont": "Source Sans Pro", "answer": "2" },
-            { "type": "A", "targetFont": "Montserrant", "answer": "2" },
-            { "type": "A", "targetFont": "Montserrant", "answer": "2" },
-            { "type": "A", "targetFont": "Montserrant", "answer": "2" },
+            { "type": "A", "targetFont": "Montserrat", "answer": "2" },
+            { "type": "A", "targetFont": "Montserrat", "answer": "2" },
+            { "type": "A", "targetFont": "Montserrat", "answer": "2" },
             { "type": "A", "targetFont": "San Francisco", "answer": "2" },
             { "type": "A", "targetFont": "San Francisco", "answer": "2" },
             { "type": "A", "targetFont": "San Francisco", "answer": "2" }
