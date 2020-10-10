@@ -31,28 +31,28 @@
     	</script>
 
         <!-- Prefetch: Images -->
-        <link rel="subresource" href="/img/logo-b@6x.png" />
-        <link rel="subresource" href="/img/logo-b.png" />
-        <link rel="subresource" href="/img/logo-w.png" />
-        <link rel="subresource" href="/img/social-sharing-splash-image.jpg" />
-        <link rel="prefetch" href="/img/logo-b@6x.png" />
-        <link rel="prefetch" href="/img/logo-b.png" />
-        <link rel="prefetch" href="/img/logo-w.png" />
-        <link rel="prefetch" href="/img/social-sharing-splash-image.jpg" />
+        <link rel="subresource" href="./img/logo-b@6x.png" />
+        <link rel="subresource" href="./img/logo-b.png" />
+        <link rel="subresource" href="./img/logo-w.png" />
+        <link rel="subresource" href="./img/social-sharing-splash-image.jpg" />
+        <link rel="prefetch" href="./img/logo-b@6x.png" />
+        <link rel="prefetch" href="./img/logo-b.png" />
+        <link rel="prefetch" href="./img/logo-w.png" />
+        <link rel="prefetch" href="./img/social-sharing-splash-image.jpg" />
 
         <!-- Prefetch: Backgrounds -->
-        <link rel="subresource" href="/img/bg/c1-bg1.jpg" />
-        <link rel="subresource" href="/img/bg/c1-bg2.jpg" />
-        <link rel="subresource" href="/img/bg/c2-bg1.jpg" />
-        <link rel="subresource" href="/img/bg/c2-bg2.jpg" />
-        <link rel="subresource" href="/img/bg/c3-bg1.jpg" />
-        <link rel="subresource" href="/img/bg/c3-bg2.jpg" />
-        <link rel="prefetch" href="/img/bg/c1-bg1.jpg" />
-        <link rel="prefetch" href="/img/bg/c1-bg2.jpg" />
-        <link rel="prefetch" href="/img/bg/c2-bg1.jpg" />
-        <link rel="prefetch" href="/img/bg/c2-bg2.jpg" />
-        <link rel="prefetch" href="/img/bg/c3-bg1.jpg" />
-        <link rel="prefetch" href="/img/bg/c3-bg2.jpg" />
+        <link rel="subresource" href="./img/bg/c1-bg1.jpg" />
+        <link rel="subresource" href="./img/bg/c1-bg2.jpg" />
+        <link rel="subresource" href="./img/bg/c2-bg1.jpg" />
+        <link rel="subresource" href="./img/bg/c2-bg2.jpg" />
+        <link rel="subresource" href="./img/bg/c3-bg1.jpg" />
+        <link rel="subresource" href="./img/bg/c3-bg2.jpg" />
+        <link rel="prefetch" href="./img/bg/c1-bg1.jpg" />
+        <link rel="prefetch" href="./img/bg/c1-bg2.jpg" />
+        <link rel="prefetch" href="./img/bg/c2-bg1.jpg" />
+        <link rel="prefetch" href="./img/bg/c2-bg2.jpg" />
+        <link rel="prefetch" href="./img/bg/c3-bg1.jpg" />
+        <link rel="prefetch" href="./img/bg/c3-bg2.jpg" />
 
         <!-- Prefetch: WOFF -->
         <link rel="subresource" href="/fonts/open-sans/OpenSans.woff" />
@@ -80,15 +80,15 @@
                     for (var i = 1; i < 4; i++) {
                         var tagPref = document.createElement('link');
                         tagPref.setAttribute('rel', 'prefetch');
-                        tagPref.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
+                        tagPref.setAttribute('href', './img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
                         document.head.appendChild(tagPref);
                         if (_b < 4) {
                             var tagSubr = document.createElement('link');
                             tagSubr.setAttribute('rel', 'subresource');
-                            tagSubr.setAttribute('href', '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
+                            tagSubr.setAttribute('href', './img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png');
                             document.head.appendChild(tagSubr);
                             var img__ = new Image();
-                            img__.src = '/img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png';
+                            img__.src = './img/can/' + (chapter+1) + '/1-' + (_b) + '-' + i + '.png';
                             img__.onload = function () { console.log('Prefetched.') };
                         };
                     };
@@ -115,7 +115,7 @@
                 </div>
                 <div id="content-2">
                     <header>
-                        <img class="js-TheLogo" src="/img/logo-b.png" width="100" height="100">
+                        <img class="js-TheLogo" src="./img/logo-b.png" width="100" height="100">
                     </header>
                     <div id="content-heading">
                         <h2 id="my-chapter-h2">Chapter 1</h2>
@@ -154,7 +154,7 @@
                 </div>
                 <div id="content-3">
                     <header>
-                        <img class="js-TheLogo" src="/img/logo-b.png" width="100" height="100">
+                        <img class="js-TheLogo" src="./img/logo-b.png" width="100" height="100">
                     </header>
                     <div style="color: #000; background: #FFF; width: 420px; height: 420px; padding: 40px 0 0; margin: 10px auto 0;">
                         <div style="height: 110px; font-size: 24px; font-weight: 300;">
@@ -177,7 +177,7 @@
 
         <!-- StandAloneObjects -->
         <div id="js-StandAloneObjectsContainer">
-            <div id="grand-logo-container"><img id="grand-logo" class="js-TheLogo-xl" src="/img/logo-b@6x.png"></div>
+            <div id="grand-logo-container"><img id="grand-logo" class="js-TheLogo-xl" src="./img/logo-b@6x.png"></div>
             <div id="grand-progress-bar-container"><div id="grand-progress-bar"><div id="grand-progress-bar-inner" class="contextual-fill"></div></div></div>
         </div>
         <!-- <div style="background: #FFF; position: fixed; top: 0; left: 0; width: 100vw; height: 8px; z-index: 9999;"></div> -->
