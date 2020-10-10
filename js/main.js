@@ -224,7 +224,7 @@ KYF.moveToScoreScreen = function () {
     if (userScore < 650) {
         userRemark = 'You\'re the majority';
     };
-    document.getElementById('js-ShareButton-twitter').href = 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fknowyourfont.com&ref_src=twsrc%5Etfw&related=typography&text=I%20scored%20__MY_SCORE__%20out%20of%201600%20on%20%40know_your_font%2C%20the%20%23typography%20adventure&tw_p=tweetbutton&url=https%3A%2F%2Fknowyourfont.com'.replace('__MY_SCORE__', userScore);
+    document.getElementById('js-ShareButton-twitter').href = 'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fneruthes.xyz%2Fknowyourfont&ref_src=twsrc%5Etfw&related=typography&text=I%20scored%20__MY_SCORE__%20out%20of%201600%20on%20%40know_your_font%2C%20the%20%23typography%20adventure&tw_p=tweetbutton&url=https%3A%2F%2Fneruthes.xyz%2Fknowyourfont'.replace('__MY_SCORE__', userScore);
     document.getElementById('meta-og-title').setAttribute('content', 'I scored userScore on KnowYourFont.com'.replace('userScore', userScore))
     document.getElementById('data-user-score').innerHTML = userScore;
     document.getElementById('data-user-remark').innerHTML = userRemark;
