@@ -98,12 +98,12 @@ KYF.setCurrentChapter = function (chapterId) {
     document.body.setAttribute('data-current-chapter', 'c' + chapterId);
     KYF.setBackgrounds(chapterId);
     if (chapterId === 2 || chapterId === 3) {
-        [].map.call(document.querySelectorAll('.js-TheLogo, .js-TheLogo-xl'), function (elem) { elem.src = '/img/logo-w.png' });
+        [].map.call(document.querySelectorAll('.js-TheLogo, .js-TheLogo-xl'), function (elem) { elem.src = './img/logo-w.png' });
         if (document.getElementById('xtjj-4270203835628303')) {
             document.getElementsByTagName('g')[0].setAttribute('fill', 'rgba(255, 255, 255, 0.7)');
         }
     } else {
-        [].map.call(document.querySelectorAll('.js-TheLogo'), function (elem) { elem.src = '/img/logo-b.png' });
+        [].map.call(document.querySelectorAll('.js-TheLogo'), function (elem) { elem.src = './img/logo-b.png' });
         if (document.getElementById('xtjj-4270203835628303')) {
             document.getElementsByTagName('g')[0].setAttribute('fill', 'rgba(0, 0, 0, 0.4)');
         }
@@ -174,7 +174,7 @@ KYF.getQuestionDetails = function (chapterId, questionIndex, shouldRewriteDOM) {
     // Put into DOM
     if (shouldRewriteDOM) {
         for (var i = 0; i < document.querySelectorAll('.option').length; i++) {
-            document.querySelectorAll('.option')[i].style.backgroundImage = 'url(/img/can/AA/1-BB-CC.png)'.replace('AA', chapterId).replace('BB', questionIndex).replace('CC', KYF.manifest[chapterId-1].questions[questionIndex].optionsArrangement[i]);
+            document.querySelectorAll('.option')[i].style.backgroundImage = 'url(./img/can/AA/1-BB-CC.png)'.replace('AA', chapterId).replace('BB', questionIndex).replace('CC', KYF.manifest[chapterId-1].questions[questionIndex].optionsArrangement[i]);
         };
         KYF.typeTextIntoElement(KYF.manifest[chapterId-1].questions[questionIndex].targetFont, document.getElementById('my-question-fontname'));
         document.getElementById('my-chapter-h2').innerHTML = 'Chapter ?'.replace('?', chapterId);
